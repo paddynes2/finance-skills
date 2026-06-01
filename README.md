@@ -28,13 +28,22 @@ license: built-in           # or: vendored-from <source> (<spdx>)
 
 A skill names the tools it *would* use (for example Xero), but degrades gracefully to user provided files and manual steps when the connector is not wired. Skills are connector agnostic: the same skill works whether Xero is reached through the native XeroAPI MCP or through Composio.
 
-## Categories (V1)
+## Categories (V1, live)
 
-1. `cfo-advisory` knowledge only: runway, unit economics, capital allocation, working capital rules.
-2. `bookkeeping-close` Xero backed: month end close, journal entries, reconciliation, trial balance.
-3. `cash-working-capital`: 13 week cash forecast, AR aging and debtor chase, DSO and DPO.
-4. `reporting-board-packs`: P&L, balance sheet, board pack, investor update, variance commentary.
-5. `tax-compliance-sa`: South African VAT201, provisional tax, SARS. Authored in house, the differentiator no off the shelf source covers.
+1. `cfo-advisory`: runway and burn, and the advisory frame. (1 skill)
+2. `cash-working-capital`: 13 week cash forecast, debtor chase. (2 skills)
+3. `reporting-board-packs`: board pack, variance actual vs budget. (2 skills)
+4. `tax-compliance-sa`: South African VAT201, provisional tax (IRP6). Authored in house, the differentiator no off the shelf source covers. (2 skills)
+
+7 skills total. More are added within the inclusion bar below; the count grows as skills are authored or vendored, never padded.
+
+## Inclusion bar (the rule)
+
+A skill is included ONLY if it genuinely works in Felix. It must either:
+- **degrade gracefully** (ask the user for figures, or read the buyer vault), or
+- **target a connector the install actually has** (e.g. Xero, once enabled in Settings > Plugins).
+
+Skills that hard depend on tools not present in Felix are not shipped. This bar exists because an earlier bulk import of skills built for a different app (assuming a "Wilson" data tool and US Plaid) answered "not in this setup" when used. Volume is not the goal; a short gallery of skills that work beats a long one that cannot.
 
 ## House rules baked into every skill
 
